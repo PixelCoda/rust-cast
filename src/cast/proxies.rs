@@ -90,7 +90,7 @@ pub mod media {
         pub custom_data: CustomData,
     }
 
-    #[derive(Serialize, Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Media {
         #[serde(rename = "contentId")]
         pub content_id: String,
@@ -104,7 +104,7 @@ pub mod media {
         pub duration: Option<f32>,
     }
 
-    #[derive(Serialize, Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Metadata {
         #[serde(rename = "metadataType")]
         pub metadata_type: u32,
@@ -201,7 +201,7 @@ pub mod media {
         }
     }
 
-    #[derive(Serialize, Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Image {
         pub url: String,
         #[serde(skip_serializing_if = "Option::is_none")]
@@ -222,7 +222,7 @@ pub mod media {
         }
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Status {
         #[serde(rename = "mediaSessionId")]
         pub media_session_id: i32,
@@ -240,7 +240,7 @@ pub mod media {
         pub supported_media_commands: u32,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct StatusReply {
         #[serde(rename = "requestId", default)]
         pub request_id: i32,
@@ -251,7 +251,7 @@ pub mod media {
         pub status: Vec<Status>,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct LoadCancelledReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,
@@ -260,7 +260,7 @@ pub mod media {
         typ: String,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct LoadFailedReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,
@@ -269,7 +269,7 @@ pub mod media {
         typ: String,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct InvalidPlayerStateReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,
@@ -278,7 +278,7 @@ pub mod media {
         typ: String,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct InvalidRequestReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,
@@ -338,7 +338,7 @@ pub mod receiver {
         pub volume: Volume,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct StatusReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,
@@ -349,7 +349,7 @@ pub mod receiver {
         pub status: Status,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Status {
         #[serde(default)]
         pub applications: Vec<Application>,
@@ -364,7 +364,7 @@ pub mod receiver {
         pub volume: Volume,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Application {
         #[serde(rename = "appId")]
         pub app_id: String,
@@ -385,13 +385,13 @@ pub mod receiver {
         pub status_text: String,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct AppNamespace {
         pub name: String,
     }
 
     /// Structure that describes possible cast device volume options.
-    #[derive(Deserialize, Serialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct Volume {
         /// Volume level.
         pub level: Option<f32>,
@@ -399,7 +399,7 @@ pub mod receiver {
         pub muted: Option<bool>,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct LaunchErrorReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,
@@ -410,7 +410,7 @@ pub mod receiver {
         pub reason: Option<String>,
     }
 
-    #[derive(Deserialize, Debug)]
+    #[derive(Serialize, Deserialize, Debug, Clone)]
     pub struct InvalidRequestReply {
         #[serde(rename = "requestId")]
         pub request_id: i32,

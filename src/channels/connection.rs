@@ -1,3 +1,5 @@
+
+
 use std::{
     borrow::Cow,
     io::{Read, Write},
@@ -16,7 +18,7 @@ const CHANNEL_USER_AGENT: &str = "RustCast";
 const MESSAGE_TYPE_CONNECT: &str = "CONNECT";
 const MESSAGE_TYPE_CLOSE: &str = "CLOSE";
 
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum ConnectionResponse {
     Connect,
     Close,

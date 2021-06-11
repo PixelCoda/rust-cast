@@ -75,7 +75,7 @@ impl<T> Lock<T> {
 }
 
 /// Type of the payload that `CastMessage` can have.
-#[derive(Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum CastMessagePayload {
     /// Payload represented by UTF-8 string (usually it's just a JSON string).
     String(String),
@@ -84,7 +84,7 @@ pub enum CastMessagePayload {
 }
 
 /// Base structure that represents messages that are exchanged between Receiver and Sender.
-#[derive(Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct CastMessage {
     /// A namespace is a labeled protocol. That is, messages that are exchanged throughout the
     /// Cast ecosystem utilize namespaces to identify the protocol of the message being sent.

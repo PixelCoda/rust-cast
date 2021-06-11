@@ -10,6 +10,10 @@ extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
 
+#[macro_use] extern crate savefile_derive;
+extern crate savefile;
+use savefile::prelude::*;
+
 mod cast;
 pub mod channels;
 pub mod errors;
@@ -39,7 +43,7 @@ type Lrc<T> = std::sync::Arc<T>;
 type Lrc<T> = std::rc::Rc<T>;
 
 /// Supported channel message types.
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum ChannelMessage {
     /// Message to be processed by `ConnectionChannel`.
     Connection(ConnectionResponse),

@@ -29,7 +29,7 @@ const APP_BACKDROP_ID: &str = "E8C28D3C";
 const APP_YOUTUBE_ID: &str = "233637DE";
 
 /// Structure that describes possible cast device volume options.
-#[derive(Copy, Clone, Debug)]
+#[derive(Copy, Serialize, Deserialize, Debug, Clone)]
 pub struct Volume {
     /// Volume level.
     pub level: Option<f32>,
@@ -69,7 +69,7 @@ impl Into<Volume> for (f32, bool) {
 }
 
 /// Structure that describes currently run Cast Device application.
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Application {
     /// The identifier of the Cast application. Not for display.
     pub app_id: String,
@@ -86,7 +86,7 @@ pub struct Application {
 }
 
 /// Describes the current status of the receiver cast device.
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Status {
     /// Unique id of the request that requested the status.
     pub request_id: i32,
@@ -101,7 +101,7 @@ pub struct Status {
 }
 
 /// Describes the application launch error.
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LaunchError {
     /// Unique id of the request that tried to launch application.
     pub request_id: i32,
@@ -110,7 +110,7 @@ pub struct LaunchError {
 }
 
 /// Describes the invalid request error.
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct InvalidRequest {
     /// Unique id of the invalid request.
     pub request_id: i32,
@@ -119,7 +119,7 @@ pub struct InvalidRequest {
 }
 
 /// Represents all currently supported incoming messages that receiver channel can handle.
-#[derive(Clone, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum ReceiverResponse {
     /// Status of the currently active receiver.
     Status(Status),
