@@ -7,7 +7,7 @@ repository = "https://github.com/azasypkin/rust-cast"
 readme = "README.md"
 license = "MIT"
 keywords = ["cast", "chromecast", "google"]
-version = "0.17.0"
+version = "0.17.1"
 authors = ["Aleh Zasypkin <aleh.zasypkin@gmail.com>"]
 categories = ["api-bindings", "hardware-support", "multimedia"]
 edition = "2018"
@@ -16,13 +16,13 @@ edition = "2018"
 byteorder = "1.4.2"
 log = "0.4.11"
 openssl = "0.10.32"
-protobuf = "=2.23.0"
+protobuf = "2.27.1"
 serde = "1.0.118"
 serde_derive = "1.0.118"
 serde_json = "1.0.61"
 
-savefile="0.7.4"
-savefile-derive="0.7.4"
+savefile = "0.10.1"
+savefile-derive="0.10.1"
 
 [build-dependencies]
 protoc-rust = "2.23.0"
